@@ -15,6 +15,7 @@ ja:
         last_sign_in_at: さいしゅうログインじこく
         last_sign_in_ip: さいしゅうログインIPアドレス
         locked_at: ロックじこく
+        name: なまえ
         password: パスワード
         password_confirmation: パスワード（かくにんよう）
         remember_created_at: ログインきおくじこく
