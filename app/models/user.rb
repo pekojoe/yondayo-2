@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :reviews
 
   validates :name, presence: true
+  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}+\z/i,
+                                message: "は はんかくえいすうじを それぞれ１しゅるいいじょうふくむ 6もじいじょうで にゅうりょくしてください"}
 end
