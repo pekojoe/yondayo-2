@@ -1,0 +1,146 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        confirmation_sent_at: パスワードかくにんそうしんじこく
+        confirmation_token: パスワードかくにんようトークン
+        confirmed_at: パスワードかくにんじこく
+        created_at: さくせいび
+        current_password: げんざいのパスワード
+        current_sign_in_at: げんざいのログインじこく
+        current_sign_in_ip: げんざいのログインIPアドレス
+        email: メールアドレス
+        encrypted_password: あんごうかパスワード
+        failed_attempts: しっぱいした ログインしこうかいすう
+        last_sign_in_at: さいしゅうログインじこく
+        last_sign_in_ip: さいしゅうログインIPアドレス
+        locked_at: ロックじこく
+        name: なまえ
+        password: パスワード
+        password_confirmation: パスワード（かくにんよう）
+        remember_created_at: ログインきおくじこく
+        remember_me: ログインをきおくする
+        reset_password_sent_at: パスワードリセットそうしんじこく
+        reset_password_token: パスワードリセットようトークン
+        sign_in_count: ログインかいすう
+        unconfirmed_email: みかくにんEメール
+        unlock_token: ロックかいじょようトークン
+        updated_at: こうしんび
+    models:
+      user: ユーザー
+  devise:
+    confirmations:
+      confirmed: メールアドレスが かくにんできました。
+      new:
+        resend_confirmation_instructions: アカウントかくにんメールさいそう
+      send_instructions: アカウントのゆうこうかについて すうふんいないにメールでごれんらくします。
+      send_paranoid_instructions: メールアドレスがとうろくずみのばあい、ほんにんかくにんようのメールが すうふんいないにそうしんされます。
+    failure:
+      already_authenticated: すでにログインしています。
+      inactive: アカウントがゆうこうかされていません。メールにきさいされたてじゅんにしたがって、アカウントをゆうこうかしてください。
+      invalid: "%{authentication_keys}または パスワードがちがいます。"
+      last_attempt: もういっかいあやまると アカウントがロックされます。
+      locked: アカウントはロックされています。
+      not_found_in_database: "%{authentication_keys}またはパスワードがちがいます。"
+      timeout: セッションがタイムアウトしました。もういちどログインしてください。
+      unauthenticated: ログイン もしくは アカウントとうろくしてください。
+      unconfirmed: メールアドレスの ほんにんかくにんがひつようです。
+    mailer:
+      confirmation_instructions:
+        action: メールアドレスのかくにん
+        greeting: "%{recipient}さま"
+        instruction: いかのリンクをクリックし、メールアドレスのかくにんてつづきを かんりょうさせてください。
+        subject: メールアドレスかくにんメール
+      email_changed:
+        greeting: こんにちは、%{recipient}さま。
+        message: メールアドレスの（%{email}）へんこうが かんりょうしたため、メールをそうしんしています。
+        message_unconfirmed: メールアドレスが（%{email}）へんこうされたため、メールをそうしんしています。
+        subject: メールへんこう かんりょう
+      password_change:
+        greeting: "%{recipient}さま"
+        message: パスワードが さいせっていされました。
+        subject: パスワードの へんこうについて
+      reset_password_instructions:
+        action: パスワードへんこう
+        greeting: "%{recipient}さま"
+        instruction: パスワードさいせっていのいらいをうけたため、メールをそうしんしています。したのリンクから パスワードのさいせっていができます。
+        instruction_2: パスワードさいせっていの いらいをしていないばあい、このメールをむししてください。
+        instruction_3: パスワードのさいせっていは、上のリンクから あたらしいパスワードをとうろくするまで かんりょうしません。
+        subject: パスワードの さいせっていについて
+      unlock_instructions:
+        action: アカウントのロックかいじょ
+        greeting: "%{recipient}さま"
+        instruction: アカウントのロックを かいじょするには したのリンクをクリックしてください。
+        message: ログインしっぱいが くりかえされたため、アカウントはロックされています。
+        subject: アカウントの ロックかいじょについて
+    omniauth_callbacks:
+      failure: "%{kind} アカウントによる にんしょうに しっぱいしました。りゆう：（%{reason}）"
+      success: "%{kind} アカウントによるにんしょうにせいこうしました。"
+    passwords:
+      edit:
+        change_my_password: パスワードをへんこうする
+        change_your_password: パスワードをへんこう
+        confirm_new_password: かくにんよう あたらしいパスワード
+        new_password: あたらしいパスワード
+      new:
+        forgot_your_password: パスワードのさいせってい
+        send_me_reset_password_instructions: パスワードのほうほうを そうしんする
+      no_token: このページにはアクセスできません。パスワードさいせっていメールの リンクからアクセスされたばあいには、URL をごかくにんください。
+      send_instructions: パスワードのさいせっていについて すうふんいないに メールでごれんらくいたします。
+      send_paranoid_instructions: メールアドレスがとうろくずみのばあい、パスワードさいせっていようのメールが すうふんいないに そうしんされます。
+
+
+      updated: パスワードがただしくへんこうされました。
+      updated_not_active: パスワードがただしくへんこうされました。
+    registrations:
+      destroyed: アカウントをさくじょしました。またのごりようをおまちしております。
+      edit:
+        are_you_sure: ほんとうによろしいですか？
+        cancel_my_account: アカウントさくじょ
+        currently_waiting_confirmation_for_email: "%{email} のかくにんまち"
+        leave_blank_if_you_don_t_want_to_change_it: くうらんのままなら へんこうしません
+        title: "%{resource}へんしゅう"
+        unhappy: きにいりません
+        update: こうしん
+        we_need_your_current_password_to_confirm_your_changes: へんこうをはんえいするには げんざいのパスワードを にゅうりょくしてください
+      new:
+        sign_up: しんきアカウントとうろく
+      signed_up: アカウントとうろくが かんりょうしました。
+      signed_up_but_inactive: ログインするためには、アカウントをゆうこうかしてください。
+      signed_up_but_locked: アカウントがロックされているためログインできません。
+      signed_up_but_unconfirmed: ほんにんかくにんようのメールをそうしんしました。メールないのリンクから アカウントをゆうこうかさせてください。
+      update_needs_confirmation: アカウントじょうほうをへんこうしました。へんこうされたメールアドレスの ほんにんかくにんのため、ほんにんかくにんようメールより かくにんしょりをおこなってください。
+      updated: アカウントじょうほうをへんこうしました。
+      updated_but_not_signed_in: あなたのアカウントはせいじょうにこうしんされましたが、パスワードがへんこうされたため、さいどログインしてください。
+    sessions:
+      already_signed_out: すでにログアウトずみです。
+      new:
+        sign_in: ログイン
+      signed_in: ログインしました。
+      signed_out: ログアウトしました。
+    shared:
+      links:
+        back: もどる
+        didn_t_receive_confirmation_instructions: アカウントかくにんのメールをうけとっていませんか？
+        didn_t_receive_unlock_instructions: アカウントのロックかいじょほうほうの メールをうけとっていませんか？
+        forgot_your_password: パスワードのさいせってい
+        sign_in: ログイン
+        sign_in_with_provider: "%{provider}でログイン"
+        sign_up: アカウントとうろく
+      minimum_password_length: "（%{count}じいじょう）"
+    unlocks:
+      new:
+        resend_unlock_instructions: アカウントのロックかいじょほうほうをさいそうする
+      send_instructions: アカウントのロックかいじょほうほうを すうふんいないにメールでごれんらくします。
+      send_paranoid_instructions: アカウントがみつかったばあい、アカウントのロックかいじょほうほうを すうふんいないにメールでごれんらくします。
+      unlocked: アカウントをロックかいじょしました。
+  errors:
+    messages:
+      already_confirmed: はすでにとうろくずみです。ログインしてください。
+      confirmation_period_expired: のきげんがきれました。%{period} までにかくにんするひつようがあります。 あたらしくリクエストしてください。
+      expired: のゆうこうきげんがきれました。あたらしくリクエストしてください。
+      not_found: はみつかりませんでした。
+      not_locked: はロックされていません。
+      not_saved:
+        one: エラーがはっせいしたため %{resource} はほぞんされませんでした。
+        other: "%{count} けんのエラーがはっせいしたため %{resource} はほぞんされませんでした。"
