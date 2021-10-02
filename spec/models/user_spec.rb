@@ -59,7 +59,6 @@ RSpec.describe User, type: :model do
       
       it 'passwordが英字のみの場合登録できない' do
         @user.password = 'abcdef'
-        binding.pry
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワードは はんかくえいすうじを それぞれ１しゅるいいじょうふくむ 6もじいじょうで にゅうりょくしてください')
       end
