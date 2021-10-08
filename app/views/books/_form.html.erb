@@ -1,0 +1,25 @@
+<p class="is-size-4 mb-3">ほんをとうろくする</p>
+
+<%# エラー文の表示 %>
+<% if book.errors.any? %>
+  <div class="notification is-danger">
+    <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: book, local: true) do |f| %>
+  <p><%= f.text_field :image, placeholder: "がぞうのURL" %></p>
+  <p><%= f.text_field :title, placeholder: "タイトル" %></p>
+  <p><%= f.text_field :author, placeholder: "さくしゃ" %></p>
+<%# google_books_api#searchへのリンク↓ %>
+  <%= fields_for :reviews do |r| %>
+    <p><%= r.text_field :book_id %></p>
+    <p><%= r.text_field :rating %></p>
+    <p><%= r.text_field :comment, class: "textarea" %></p>
+  <% end %>
+  <p><%= f.submit "とうろく", class: "button mt-3" %></p>
+<% end %>
