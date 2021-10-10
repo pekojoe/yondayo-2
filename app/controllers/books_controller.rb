@@ -10,7 +10,9 @@ class BooksController < ApplicationController
   end
 
   def create
-    binding.pry
+    # @reviewのuser_idカラムに現在のuser_idをセット
+    # @reviewのbook_idカラムに現在のbook_idをセット
+
     @book = Book.create(book_params)
     if @book.save
       redirect_to root_path
@@ -23,7 +25,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:image, :title, :author, reviews_attributes: [:id, :book_id, :rating, :comment])
+    params.require(:book).permit(:image, :title, :author, reviews_attributes: [:id, :book_id, :rating, :comment]).merge(user_id: current_user.id)
   end
 
 end
