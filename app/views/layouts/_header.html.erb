@@ -10,10 +10,6 @@
           <li class="nav-item active">
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
-          <form class="form-inline">
-            <input type="search" class="form-control">
-            <button type="submit" class="btn btn-primary btn-block">けんさく</button>
-          </form>
         <% else %>
           <li class="nav-item active">
             <%= link_to "しんきとうろく", new_user_registration_path, class: 'nav-link' %>
