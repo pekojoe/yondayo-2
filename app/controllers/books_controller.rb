@@ -10,9 +10,6 @@ class BooksController < ApplicationController
   end
 
   def create
-    # @reviewのuser_idカラムに現在のuser_idをセット
-    # @reviewのbook_idカラムに現在のbook_idをセット
-
     @book = Book.create(book_params)
     if @book.save
       redirect_to root_path
