@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'books#index'
   resources :books do
     resources :reviews, only: :create
-    collection do
+    collection do # searchアクションのルーティングを設定する。
       get 'search'
     end
   end
