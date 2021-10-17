@@ -59,6 +59,11 @@ class GoogleBook
       end
     end
 
+    # imageが存在する場合はtrue、存在しなかった場合はfalseを返す
+    def image?
+      image.present? ? true : false
+    end
+
     private
     # @volume_info['imageLinks']が存在する場合、その['smallThumnail']を取得する
     def image_url

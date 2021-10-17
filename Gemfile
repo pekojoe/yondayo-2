@@ -68,3 +68,6 @@ gem 'pry-rails'
 
 #URLのエスケープ処理
 gem 'addressable'
+
+# ImageMagickの機能をRubyで扱えるようにしてくれるGem
+gem 'mini_magick'

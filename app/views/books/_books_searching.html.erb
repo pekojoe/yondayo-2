@@ -1,5 +1,20 @@
 <%# 1つの検索結果についてのテンプレート %>
-<p><%= book.image %></p>
-<p><%= book.title %></p>
-<p><%= book.author%></p>
-<%= link_to "レビューをかく", new_book_path %>
+<div class="col-12 col-md-6">
+  <div class="container card card-book">
+    <div class="row">
+      <%# <% if book.image? %>
+        <%# <%= image_path(book.image) %> %>
+      <%# <% else %> %>
+        <%# <%= image_tag 'book-placeholder.png', height: '100' %> %>
+      <%# <% end %> %> 
+      <p><%= book.title %></p>
+      <% book.author.each do |a| %>
+        <%= a %>
+      <% end %>
+    </div>
+  <%# 本の新規登録画面にimage,title,authorの値を渡す %>
+    <div class="text-right">
+      <%= link_to "レビューをかく", new_book_path, class: "btn btn-primary", method: :get%>
+    </div>
+  </div>
+</div>
