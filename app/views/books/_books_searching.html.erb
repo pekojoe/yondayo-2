@@ -8,9 +8,7 @@
         <%# <%= image_tag 'book-placeholder.png', height: '100' %> %>
       <%# <% end %> %> 
       <p><%= book.title %></p>
-      <% book.author.each do |a| %>
-        <%= a %>
-      <% end %>
+      <p><%= book.author %></p>
     </div>
   <%# 本の新規登録画面にimage,title,authorの値を渡す %>
     <div class="text-right">
