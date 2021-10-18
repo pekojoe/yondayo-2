@@ -28,7 +28,9 @@ class GoogleBook
       new(
         image: image_url, #プライベートメソッドに記載.@volume_info['imageLinks']['smallThumnail']が存在する場合は取得
         title: @volume_info['title'],
-        author: author_get, #プライベートメソッドに記載
+        
+        # &.→レシーバ(@volume_info['authors'])がnilのときはnilを返してくれる演算子
+        author: @volume_info['authors']&.join(','),
         google_books_api_id: @item['id']
       )
     end
@@ -68,13 +70,6 @@ class GoogleBook
     # @volume_info['imageLinks']が存在する場合、その['smallThumnail']を取得する
     def image_url
       @volume_info['imageLinks']['smallThumnail'] if @volume_info['imageLinks'].present?
-    end
-
-    def author_get
-      # 1つの本のインスタンスのJSON情報(@volume_info)をハッシュにする
-      hash = JSON.parse(@volume_info)
-      # ハッシュ作者名の配列のうち、firstで文字列のみを取得する 
-      return hash["authors"]
     end
   end
 end
