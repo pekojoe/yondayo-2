@@ -8,6 +8,10 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @book.reviews.build
+    # googlebooksapi経由で登録する場合は、検索結果をそのままフォームに反映させるようにする
+    @book.image = params[:image] if params[:image].present?
+    @book.title = params[:title] if params[:title].present?
+    @book.author = params[:author] if params[:author].present?
   end
 
   def create

@@ -1,18 +1,18 @@
 <%# 1つの検索結果についてのテンプレート %>
-<div class="col-12 col-md-6">
+<div class="col-6 col-md-3">
   <div class="container card card-book">
     <div class="row">
-      <%# <% if book.image? %>
-        <%# <%= image_path(book.image) %> %>
-      <%# <% else %> %>
-        <%# <%= image_tag 'book-placeholder.png', height: '100' %> %>
-      <%# <% end %> %> 
-      <p><%= book.title %></p>
+    <% if book.image.present? %>
+      <%= image_tag(book.image) %>
+    <% else %>
+      <%= image_tag 'book-placeholder.png' %>
+    <% end %>
+      <h5><%= book.title %></h5>
       <p><%= book.author %></p>
     </div>
   <%# 本の新規登録画面にimage,title,authorの値を渡す %>
     <div class="text-right">
-      <%= link_to "レビューをかく", new_book_path, class: "btn btn-primary", method: :get%>
+      <%= link_to "レビューをかく", new_book_path(image: book.image, title: book.title, author: book.author), class: "btn btn-primary", method: :get %>
     </div>
   </div>
 </div>
