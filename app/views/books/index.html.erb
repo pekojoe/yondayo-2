@@ -1,0 +1,36 @@
+<%= render 'layouts/flash_messages' %> 
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <% @books.each do |book| %>
+          <div class="card mb-6">
+            <header class="card-header">
+              <div class="card-header-title">
+                <p><%= book.image %></p>
+                <p><%= book.title %></p>
+                <p><%= book.author %></p>
+              </div>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <div class="star-rating mb-2">
+                  <%# <div class="star-rating-front" style="width: <%= book.review_rating_percentage %><%#%">★★★★★</div>%>
+                  <div class="star-rating-back">★★★★★</div>
+                </div>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <%= link_to book_reviews_path(book), class: "button card-footer-item" do %>
+                レビューをみる
+              <% end %>
+              <%= link_to book_path(book), class: "button card-footer-item" do %>
+                レビューをかく
+              <% end %>
+            </footer>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+<%# エラー文の表示 %>
+<% if book.errors.any? %>
+  <div class="notification is-danger">
+    <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%# 本の登録フォーム %>
+<%= form_with(model: book, local: true) do |f| %>
+    <div class = "form-group" >
+      <%= f.label :image, "がぞうのURL" %>
+      <%= f.text_field :image, class:'form-control', placeholder:"http://example.com", autofocus: true %>
+    </div>
+    
+    <div class = "form-group" >
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class:'form-control' %>
+    </div>
+
+    <div class = "form-group" >
+      <%= f.label :author, "さくしゃ" %>
+      <%= f.text_field :author, class:'form-control' %>
+    </div>
+  <%# <%= f.text_field :image, placeholder: "がぞうのURL" %>
+  <%# <%= f.text_field :title, placeholder: "タイトル" %>
+  <%# <%= f.text_field :author, placeholder: "さくしゃ" %>
+<%# google_books_api#searchへのリンク↓ %>
+    <div class="rating-box" mt-3 >
+      <%= f.fields_for :reviews do |r| %>
+        <div class="main-rating">
+          <div class="ratings" mb-3>
+            <span class="fa fa-star-o" id="star"></span>
+            <span class="fa fa-star-o" id="star"></span>
+            <span class="fa fa-star-o" id="star"></span>
+            <span class="fa fa-star-o" id="star"></span>
+            <span class="fa fa-star-o" id="star"></span>
+          </div>
+          <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div> <%# ユーザーがいくつ星を選択しているかを表示 %>
+        </div>
+        <%= r.hidden_field :user_id, value: current_user.id %> <%# レビューに紐づくuser_idを取得 %>
+        <%= r.hidden_field :book_id, value: book.id %> <%# レビューに紐づくbook_idを取得 %>
+        <%= r.hidden_field :rating, id: "rating-value" %>
+        <div class = "form-group" >
+          <%= r.label :comment, "かんそう" %>
+          <%= r.text_area :comment, class:'form-control' %>
+        </div>
+        <%# <p><%= r.text_area :comment, class: "textarea", placeholder: "かんそう" </p> %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "ほぞん", class: 'btn btn-primary btn-block' %>
+    </div>
+    <%# <%= f.submit "とうろく", class: "button mt-3" %>
+<% end %>
+
+<%= javascript_pack_tag "reviews" %>
