@@ -1,6 +1,29 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.rating-container {
+  display: flex;
+}
+
+.star-rating {
+  position: relative;
+  font-size: 25px;
+}
+
+.star-rating-front {
+  position: absolute;
+  width: 5em; //500%
+  height: 1.2em;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #fc0;
+}
+
+.star-rating-back {
+  color: #ccc;
+}
+
 .rating-box .ratings .fa {
   font-size: 30px;
   color: #fc0;

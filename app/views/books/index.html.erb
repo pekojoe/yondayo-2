@@ -1,3 +1,4 @@
+<h1>いままでに よんだほん:<%= @books.length %>さつ</h1>
 <%= render 'layouts/flash_messages' %> 
 <section class="section mt-6">
   <div class="container">
@@ -7,27 +8,25 @@
           <div class="card mb-6">
             <header class="card-header">
               <div class="card-header-title">
-                <p><%= book.image %></p>
+                <% if book.image.present? %>
+                  <%= image_tag(book.image) %>
+                <% else %>
+                  <%= image_tag 'book-placeholder.png', size: '128x140' %>
+                <% end %>                
                 <p><%= book.title %></p>
                 <p><%= book.author %></p>
               </div>
             </header>
             <div class="card-content">
               <div class="content">
-                <div class="star-rating mb-2">
-                  <%# <div class="star-rating-front" style="width: <%= book.review_rating_percentage %><%#%">★★★★★</div>%>
-                  <div class="star-rating-back">★★★★★</div>
+                <div class="rating-container">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= book.review_rating_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
                 </div>
               </div>
             </div>
-            <footer class="card-footer">
-              <%= link_to book_reviews_path(book), class: "button card-footer-item" do %>
-                レビューをみる
-              <% end %>
-              <%= link_to book_path(book), class: "button card-footer-item" do %>
-                レビューをかく
-              <% end %>
-            </footer>
           </div>
         <% end %>
       </div>

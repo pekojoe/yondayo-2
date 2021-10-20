@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, expect: :index
+  before_action :authenticate_user!
   
   def index
-    @books = Book.all
+    user = current_user
+    @books = user.books
   end
 
   def new

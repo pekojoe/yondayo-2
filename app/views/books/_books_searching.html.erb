@@ -10,7 +10,7 @@
       <h5><%= book.title %></h5>
       <p><%= book.author %></p>
     </div>
-  <%# 本の新規登録画面にimage,title,authorの値を渡す %>
+    <%# 本のレビュー新規登録画面にimage,title,authorの値を渡す %>
     <div class="text-right">
       <%= link_to "レビューをかく", new_book_path(image: book.image, title: book.title, author: book.author), class: "btn btn-primary", method: :get %>
     </div>
