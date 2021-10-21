@@ -1,35 +1,30 @@
-<h1>いままでに よんだほん:<%= @books.length %>さつ</h1>
-<%= render 'layouts/flash_messages' %> 
-<section class="section mt-6">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        <% @books.each do |book| %>
-          <div class="card mb-6">
-            <header class="card-header">
-              <div class="card-header-title">
-                <% if book.image.present? %>
-                  <%= image_tag(book.image) %>
-                <% else %>
-                  <%= image_tag 'book-placeholder.png', size: '128x140' %>
-                <% end %>                
-                <p><%= book.title %></p>
-                <p><%= book.author %></p>
-              </div>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <div class="rating-container">
-                  <div class="star-rating mb-2">
-                    <div class="star-rating-front" style="width: <%= book.review_rating_percentage %>%">★★★★★</div>
-                    <div class="star-rating-back">★★★★★</div>
-                  </div>
-                </div>
+<h2>いままでに よんだほん:<%= @books.length %>さつ</h2>
+<%= render 'layouts/flash_messages' %>
+
+<%# カードを横並び＆隙間ありにする %>
+<div class="card-deck">
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="card col-6 col-sm-3">
+        <img class="card-img-top">
+          <% if book.image.present? %>
+            <%= image_tag(book.image) %>
+          <% else %>
+            <%= image_tag("book-placeholder.png", class: "img-responsive") %>
+          <% end %>
+        <div class="card-body">                
+          <h4 class="card-title"><%= book.title %></h4>
+            <div class="card-text rating-container">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= book.review_rating_percentage %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
               </div>
             </div>
-          </div>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-</section>
+</div>
+
+
+
