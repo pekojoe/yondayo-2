@@ -1,36 +1,31 @@
-<%= render 'layouts/flash_messages' %> 
-<section class="section mt-6">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        <% @books.each do |book| %>
-          <div class="card mb-6">
-            <header class="card-header">
-              <div class="card-header-title">
-                <p><%= book.image %></p>
-                <p><%= book.title %></p>
-                <p><%= book.author %></p>
-              </div>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <div class="star-rating mb-2">
-                  <%# <div class="star-rating-front" style="width: <%= book.review_rating_percentage %><%#%">★★★★★</div>%>
-                  <div class="star-rating-back">★★★★★</div>
-                </div>
-              </div>
+<h2>いままでに よんだほん:<%= @books.length %>さつ</h2>
+<%= render 'layouts/flash_messages' %>
+
+<%# カードを横並び＆隙間ありにする %>
+<div class="card-deck">
+  <div class="row">
+    <% @books.each do |book| %>
+      <%= link_to(book_path(book), class: "card col-6 col-sm-2") do %>
+        <img class="card-img-top">
+          <% if book.image.present? %>
+            <%= image_tag(book.image) %>
+          <% else %>
+            <%# デフォルト画像をレスポンシブ化 %>
+            <%= image_tag("book-placeholder.png", class: "img-responsive") %>
+          <% end %>
+        <div class="card-body">                
+          <h5 class="card-title"><%= book.title %></h5>
+          <div class="card-text rating-container">
+            <div class="star-rating mb-2">
+              <div class="star-rating-front" style="width: <%= book.review_rating_percentage %>%">★★★★★</div>
+              <div class="star-rating-back">★★★★★</div>
             </div>
-            <footer class="card-footer">
-              <%= link_to book_reviews_path(book), class: "button card-footer-item" do %>
-                レビューをみる
-              <% end %>
-              <%= link_to book_path(book), class: "button card-footer-item" do %>
-                レビューをかく
-              <% end %>
-            </footer>
           </div>
-        <% end %>
-      </div>
-    </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-</section>
+</div>
+
+
+

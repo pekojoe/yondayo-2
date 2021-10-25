@@ -25,10 +25,6 @@
       <%= f.label :author, "さくしゃ" %>
       <%= f.text_field :author, class:'form-control' %>
     </div>
-  <%# <%= f.text_field :image, placeholder: "がぞうのURL" %>
-  <%# <%= f.text_field :title, placeholder: "タイトル" %>
-  <%# <%= f.text_field :author, placeholder: "さくしゃ" %>
-<%# google_books_api#searchへのリンク↓ %>
     <div class="rating-box" mt-3 >
       <%= f.fields_for :reviews do |r| %>
         <div class="main-rating">
@@ -48,13 +44,11 @@
           <%= r.label :comment, "かんそう" %>
           <%= r.text_area :comment, class:'form-control' %>
         </div>
-        <%# <p><%= r.text_area :comment, class: "textarea", placeholder: "かんそう" </p> %>
       <% end %>
     </div>
     <div class="form-group">
       <%= f.submit "ほぞん", class: 'btn btn-primary btn-block' %>
     </div>
-    <%# <%= f.submit "とうろく", class: "button mt-3" %>
 <% end %>
 
 <%= javascript_pack_tag "reviews" %>
