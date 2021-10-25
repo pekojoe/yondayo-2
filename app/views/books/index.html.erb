@@ -5,23 +5,24 @@
 <div class="card-deck">
   <div class="row">
     <% @books.each do |book| %>
-      <div class="card col-6 col-sm-3">
+      <%= link_to(book_path(book), class: "card col-6 col-sm-2") do %>
         <img class="card-img-top">
           <% if book.image.present? %>
             <%= image_tag(book.image) %>
           <% else %>
+            <%# デフォルト画像をレスポンシブ化 %>
             <%= image_tag("book-placeholder.png", class: "img-responsive") %>
           <% end %>
         <div class="card-body">                
-          <h4 class="card-title"><%= book.title %></h4>
-            <div class="card-text rating-container">
-              <div class="star-rating mb-2">
-                <div class="star-rating-front" style="width: <%= book.review_rating_percentage %>%">★★★★★</div>
-                <div class="star-rating-back">★★★★★</div>
-              </div>
+          <h5 class="card-title"><%= book.title %></h5>
+          <div class="card-text rating-container">
+            <div class="star-rating mb-2">
+              <div class="star-rating-front" style="width: <%= book.review_rating_percentage %>%">★★★★★</div>
+              <div class="star-rating-back">★★★★★</div>
             </div>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
