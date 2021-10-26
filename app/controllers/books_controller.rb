@@ -31,6 +31,16 @@ class BooksController < ApplicationController
     @books = GoogleBook.search(@search_form.keyword)
   end
 
+  def show
+    @book = Book.find(params[:id])
+
+    # 詳細ページで表示したい本に紐づく全てのレビューを@reviewsに代入
+    @reviews = @book.reviews
+    
+    # @reviewsのうち、ログイン中のユーザーに紐づくレビューを@reviewに代入
+    @review = @reviews.where(params[:user_id] == current_user.id).first
+  end
+
 
   private
 

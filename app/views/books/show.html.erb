@@ -1,9 +1,30 @@
-<section class="section mt-6">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        <%= render 'form', review: @review, book: @book %> <%# 評価と感想を表示 %>
-      </div>
+<div class="container">
+  <div class= "mx-auto" style="width: 20%;">
+    <% if @book.image.present? %>
+      <%= image_tag(@book.image) %>
+    <% else %>
+      <%# デフォルト画像をレスポンシブ化 %>
+      <%= image_tag("book-placeholder.png", class: "img-responsive") %>
+    <% end %>
+  </div>
+
+  <h2 class="text-center">
+    <%= @book.title %>
+  </h2>
+
+  <h3 class="text-center">
+    <%= @book.author %>
+  </h3>
+
+  <div class="rating-container mx-auto" style="width: 20%;">
+    <div class="star-rating mb-2">
+      <div class="star-rating-front" style="width: <%= @book.review_rating_percentage %>%">★★★★★</div>
+      <div class="star-rating-back">★★★★★</div>
     </div>
   </div>
-</section>
+
+  <h4 class="text-center">
+    <%= @review.comment %>
+  </h4>
+
+</div>
