@@ -13,6 +13,7 @@ class BooksController < ApplicationController
     @book.image = params[:image] if params[:image].present?
     @book.title = params[:title] if params[:title].present?
     @book.author = params[:author] if params[:author].present?
+    @book.google_books_api_id = params[:google_books_api_id] if params[:google_books_api_id].present?
   end
 
   def create
