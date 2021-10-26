@@ -47,13 +47,23 @@ class BooksController < ApplicationController
     reviews = @book.reviews.where(params[:user_id] == current_user.id).first
   end
 
+  def update
+    book = Book.find(params[:id])
+    if book.update(book_params)
+      flash[:notice] = "こうしんしました"
+      redirect_to book_path
+    end
+  end
+
   def destroy
     book = Book.find(params[:id])
     if book.destroy
-      flash[:notice] = "さくじょが かんりょうしました"
+      flash[:notice] = "さくじょしました"
       redirect_to root_path
     end
   end
+
+
 
 
   private
