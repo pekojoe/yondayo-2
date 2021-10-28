@@ -1,9 +1,37 @@
-<section class="section mt-6">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        <%= render 'form', review: @review, book: @book %> <%# 評価と感想を表示 %>
-      </div>
+<%= render 'layouts/flash_messages' %>
+
+<div class="container">
+  <div class= "mx-auto mb-3" style="width: 20%;">
+    <% if @book.image.present? %>
+      <%= image_tag(@book.image) %>
+    <% else %>
+      <%# デフォルト画像をレスポンシブ化 %>
+      <%= image_tag("book-placeholder.png", class: "img-responsive") %>
+    <% end %>
+  </div>
+
+  <h2 class="text-center mb-3">
+    <%= @book.title %>
+  </h2>
+
+  <h3 class="text-center mb-3">
+    <%= @book.author %>
+  </h3>
+
+  <div class="rating-container mx-auto mb-3" style="width: 20%;">
+    <div class="star-rating mb-2">
+      <div class="star-rating-front" style="width: <%= @book.review_rating_percentage %>%">★★★★★</div>
+      <div class="star-rating-back">★★★★★</div>
     </div>
   </div>
-</section>
+
+  <h4 class="text-center mb-3">
+    <%= @review.comment %>
+  </h4>
+
+  <div class="btn-wrapper text-center">
+    <%= link_to "へんしゅう", edit_book_path, class: 'btn btn-primary btn-block' %>
+    <%= link_to "さくじょ", book_path, data: {confirm: 'ほんとうに さくじょしますか？'}, method: :delete, class: 'btn btn-danger btn-block' %>
+    <%= link_to "もどる", root_path, class: 'btn btn-secondary btn-block' %>
+  </div>
+</div>

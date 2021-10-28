@@ -1,5 +1,9 @@
+
 <h3><%= current_user.name %>さんが よんだほん:<%= @books.length %>さつ</h3>
+
+
 <%= render 'layouts/flash_messages' %>
+<h2>いままでに よんだほん:<%= @books.length %>さつ</h2>
 
 <%= form_with(url: index_search_books_path, local: true, method: :get, class: "form-inline") do |f| %>
 

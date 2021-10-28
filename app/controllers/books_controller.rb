@@ -19,6 +19,7 @@ class BooksController < ApplicationController
     @book.image = params[:image] if params[:image].present?
     @book.title = params[:title] if params[:title].present?
     @book.author = params[:author] if params[:author].present?
+    @book.google_books_api_id = params[:google_books_api_id] if params[:google_books_api_id].present?
   end
 
   def create
@@ -36,6 +37,39 @@ class BooksController < ApplicationController
     # 受け取った検索キーワードをGooglebookクラスのsearchメソッドに渡して、検索結果群（インスタンス群）の配列として受け取る
     @books = GoogleBook.search(@search_form.keyword)
   end
+
+  def show
+    @book = Book.find(params[:id])
+
+    # 詳細ページで表示したい本に紐づく全てのレビューを@reviewsに代入
+    @reviews = @book.reviews
+    
+    # @reviewsのうち、ログイン中のユーザーに紐づくレビューを@reviewに代入
+    @review = @reviews.where(params[:user_id] == current_user.id).first
+  end
+
+  def edit
+    @book = Book.find(params[:id])
+    reviews = @book.reviews.where(params[:user_id] == current_user.id).first
+  end
+
+  def update
+    book = Book.find(params[:id])
+    if book.update(book_params)
+      flash[:notice] = "こうしんしました"
+      redirect_to book_path
+    end
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    if book.destroy
+      flash[:notice] = "さくじょしました"
+      redirect_to root_path
+    end
+  end
+
+
 
 
   private

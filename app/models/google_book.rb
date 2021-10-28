@@ -21,7 +21,7 @@ class GoogleBook
     #モジュールの場所:app/lib/google_books_api.rb
     include GoogleBooksApi
     
-    #1つのitemから1つのインスタンスを生成する
+    #1つの本の情報(item)から1つのインスタンスを生成する
     def new_from_item(item)
       @item = item
       @volume_info = @item['volumeInfo']
