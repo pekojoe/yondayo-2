@@ -11,6 +11,14 @@ class Book < ApplicationRecord
       0
     end
   end
+
+  def self.index_search(keyword)
+    if keyword != ""
+      Book.where('title LIKE ? OR author LIKE ?', "%#{keyword}%", "%#{keyword}%")
+    else
+      redirect_to root_path
+    end
+  end
 end
 
 

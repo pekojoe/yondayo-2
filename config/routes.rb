@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     collection do # searchアクションのルーティングを設定する。
       get 'search'
     end
+    collection do
+      get 'index-search'
+    end
   end
 end

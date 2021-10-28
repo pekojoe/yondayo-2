@@ -3,12 +3,11 @@
 <%= form_with(url: search_books_path, local: true, method: :get) do |f| %>
 
   <div class = "form-group" >
-    <%= f.label :keyword, "キーワード" %>
-    <%= f.text_field :keyword, class:'form-control', value: @search_form.keyword, placeholder: 'キーワードを にゅうりょくしてください' %>
+    <%= f.text_field :keyword, class:'form-control', value: @search_form.keyword, placeholder: 'タイトル・さくしゃ' %>
   </div>
 
   <div class="form-group">
-    <%= f.submit "けんさくする", class: 'btn btn-primary btn-block' %>
+    <%= f.submit "けんさく", class: 'btn btn-primary btn-block' %>
   </div>
 
 <% end %>

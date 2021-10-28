@@ -5,6 +5,12 @@ class BooksController < ApplicationController
     user = current_user
     @books = user.books
   end
+  
+  def index_search
+    @books = Book.index_search(params[:keyword])
+    @keyword = params[:keyword]
+  end
+
 
   def new
     @book = Book.new
