@@ -1,14 +1,10 @@
-
 <h3><%= current_user.name %>さんが よんだほん:<%= @books.length %>さつ</h3>
-
-
 <%= render 'layouts/flash_messages' %>
-<h2>いままでに よんだほん:<%= @books.length %>さつ</h2>
 
 <%= form_with(url: index_search_books_path, local: true, method: :get, class: "form-inline") do |f| %>
 
   <div class="form-group">
-    <%= f.text_field :keyword, class: "form-control", placeholder: "よんだほんを けんさくする" %>
+    <%= f.text_field :keyword, class: "form-control", value: @keyword %>
   </div>
 
   <div class="form-group">
@@ -42,6 +38,3 @@
     <% end %>
   </div>
 </div>
-
-
-
