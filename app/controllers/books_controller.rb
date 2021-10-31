@@ -11,7 +11,6 @@ class BooksController < ApplicationController
     @keyword = params[:keyword]
   end
 
-
   def new
     @book = Book.new
     @book.reviews.build
@@ -68,8 +67,6 @@ class BooksController < ApplicationController
       redirect_to root_path
     end
   end
-
-
 
 
   private
