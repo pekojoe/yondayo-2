@@ -1,17 +1,22 @@
-<h3><%= current_user.name %>さんが よんだほん:<%= @books.length %>さつ</h3>
 <%= render 'layouts/flash_messages' %>
+<h3 style="margin:0.8rem;">"<%= @keyword %>"にかんする よんだほん:<%= @books.length %>さつ</h3>
 
-<%= form_with(url: index_search_books_path, local: true, method: :get, class: "form-inline") do |f| %>
-
-  <div class="form-group">
-    <%= f.text_field :keyword, class: "form-control", value: @keyword %>
+<div class="row" style="margin:1.5rem;">
+  <div class="col-sm-8">
+    <%= form_with(url: index_search_books_path, local: true, method: :get, class: "input-group ") do |f| %>
+      <%= f.text_field :keyword, class: "form-control", value: @keyword %>
+      <span>
+        <%= f.button type: "submit", class: "btn btn-secondary" do %>
+          <i class="fa fa-search"></i>
+        <% end %>
+      </span>
+    <% end %>
   </div>
-
-  <div class="form-group">
-    <%= f.submit "けんさく", class: "btn btn-primary" %>
+  <div class="col-sm-4">
+    <%= button_to "ほんをとうろく", new_book_path, {class: "btn btn-primary", method: :get} %>
   </div>
+</div>
 
-<% end %>
 
 <%# カードを横並び＆隙間ありにする %>
 <div class="card-deck">
