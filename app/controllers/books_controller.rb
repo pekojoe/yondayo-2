@@ -3,12 +3,16 @@ class BooksController < ApplicationController
   
   def index
     user = current_user
-    @books = user.books
+    @books = user.books.order("created_at DESC")
   end
   
   def index_search
-    @books = Book.index_search(params[:keyword])
     @keyword = params[:keyword]
+    if @keyword.present?
+      @books = Book.where('title LIKE ? OR author LIKE ?', "%#{@keyword}%", "%#{@keyword}%")
+    else
+      redirect_to root_path
+    end
   end
 
   def new
