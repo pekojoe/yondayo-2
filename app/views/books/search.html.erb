@@ -16,3 +16,4 @@
 <%# @books(検索結果群（インスタンス群）)の要素の数だけ部分テンプレートが繰り返される。each文不要。 %>
 <%# @booksの各本は asオプションによりbookとして部分テンプレート内で使える。 %>
 <%= render partial: "books_searching", collection: @books, as: :book %>
+<%= paginate @books %>

@@ -39,6 +39,7 @@ class BooksController < ApplicationController
     @search_form = SearchBooksForm.new(search_books_params) 
     # 受け取った検索キーワードをGooglebookクラスのsearchメソッドに渡して、検索結果群（インスタンス群）の配列として受け取る
     @books = GoogleBook.search(@search_form.keyword)
+    @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
   end
 
   def show
