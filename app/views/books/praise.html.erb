@@ -1,0 +1,24 @@
+<h2 class="fs-2 fw-bold" style="margin:1.5rem;"><%= current_user.name %>さんが よんだほん:<%= @books.length %>さつ</h2>
+<div class="row" style="margin:1.5rem;">
+  <div class="input-group"> 
+    <%= image_tag("book_character_smile.png", class: "img-responsive col-2 col-sm-1", style:"margin-right:1.5rem;") %>
+    <div class="balloon">
+      <h5 style="padding-top:10px;">
+      <%# style="margin:1.5rem 3rem 0 2rem;" %>
+        たくさん よんでいて すごいね！
+      </h5>
+    </div>
+  </div>
+</div> 
+
+<%# カードを横並びにする %>
+<div class="card-deck">
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="card col-2 col-sm-1 border border-0 ">
+        <img class="card-img-top">
+          <%= image_tag("book-placeholder.png", class: "img-responsive") %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -73,6 +73,11 @@ class BooksController < ApplicationController
     end
   end
 
+  def praise
+    user = current_user
+    @books = user.books
+  end
+
 
   private
 
