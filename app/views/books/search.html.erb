@@ -1,6 +1,6 @@
 <%# scopeオプション(scope: q)により、要素のname = q[name] %になる。htmlで確認可 %>
-<p class="fs-2 fw-bold">ほんをけんさくする</p>
-<div class="row" style="margin:1.5rem;">
+<p class="fs-2 fw-bold" style="margin:1.5rem;">ほんをけんさくする</p>
+<div class="row" style="margin:1.5rem 0;">
   <div class="col-sm-6">
     <%= form_with(url: search_books_path, local: true, method: :get, class: "input-group") do |f| %>
       <%= f.text_field :keyword, class: "form-control", value: @search_form.keyword, placeholder: 'タイトル・さくしゃ' %>
@@ -21,4 +21,6 @@
     <%= render partial: "books_searching", collection: @books, as: :book %>
   </div>
 </div>
-<%= paginate @books %>
+<div class="pagination", style="margin: 1.5rem;">
+  <%= paginate @books %>
+</div>

@@ -96,7 +96,7 @@ ja:
       destroyed: アカウントをさくじょしました。またのごりようをおまちしております。
       edit:
         are_you_sure: ほんとうによろしいですか？
-        cancel_my_account: アカウントさくじょ
+        cancel_my_account: さくじょ
         currently_waiting_confirmation_for_email: "%{email} のかくにんまち"
         leave_blank_if_you_don_t_want_to_change_it: くうらんのままなら へんこうしません
         title: "%{resource}へんしゅう"
@@ -104,7 +104,7 @@ ja:
         update: こうしん
         we_need_your_current_password_to_confirm_your_changes: へんこうをはんえいするには げんざいのパスワードを にゅうりょくしてください
       new:
-        sign_up: しんきアカウントとうろく
+        sign_up: とうろく
       signed_up: アカウントとうろくが かんりょうしました。
       signed_up_but_inactive: ログインするためには、アカウントをゆうこうかしてください。
       signed_up_but_locked: アカウントがロックされているためログインできません。
