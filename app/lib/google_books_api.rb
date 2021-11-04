@@ -7,7 +7,7 @@ module GoogleBooksApi
 
   # キーワードから、検索用のURLを取得する
   def url_of_searching_from_keyword(keyword)
-    "https://www.googleapis.com/books/v1/volumes?q=#{keyword}&country=JP"
+    "https://www.googleapis.com/books/v1/volumes?q=#{keyword}&maxResults=40&country=JP"
   end
 
   # URLから、JSON文字列を取得し、JSONオブジェクトを構築する

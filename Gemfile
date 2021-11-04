@@ -71,3 +71,6 @@ gem 'addressable'
 
 # ImageMagickの機能をRubyで扱えるようにしてくれるGem
 gem 'mini_magick'
+
+# ページネーション機能の実装
+gem 'kaminari'

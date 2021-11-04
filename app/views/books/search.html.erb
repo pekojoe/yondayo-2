@@ -1,18 +1,26 @@
 <%# scopeオプション(scope: q)により、要素のname = q[name] %になる。htmlで確認可 %>
-<p class="fs-2 fw-bold">ほんをけんさくする</p>
-<%= form_with(url: search_books_path, local: true, method: :get) do |f| %>
-
-  <div class = "form-group" >
-    <%= f.text_field :keyword, class:'form-control', value: @search_form.keyword, placeholder: 'タイトル・さくしゃ' %>
+<p class="fs-2 fw-bold" style="margin:1.5rem;">ほんをけんさくする</p>
+<div class="row" style="margin:1.5rem 0;">
+  <div class="col-sm-6">
+    <%= form_with(url: search_books_path, local: true, method: :get, class: "input-group") do |f| %>
+      <%= f.text_field :keyword, class: "form-control", value: @search_form.keyword, placeholder: 'タイトル・さくしゃ' %>
+      <span>
+        <%= f.button type: "submit", class: "btn btn-secondary" do %>
+          <i class="fa fa-search"></i>
+        <% end %>
+      </span>
+    <% end %>
   </div>
+</div>
 
-  <div class="form-group">
-    <%= f.submit "けんさく", class: 'btn btn-primary btn-block' %>
+<div class="card-deck">
+  <div class="row">
+    <%# 部分テンプレート_books_searching.html.erbを読み込む。%>
+    <%# @books(検索結果群（インスタンス群）)の要素の数だけ部分テンプレートが繰り返される。each文不要。 %>
+    <%# @booksの各本は asオプションによりbookとして部分テンプレート内で使える。 %>
+    <%= render partial: "books_searching", collection: @books, as: :book %>
   </div>
-
-<% end %>
-
-<%# 部分テンプレート_books_searching.html.erbを読み込む。%>
-<%# @books(検索結果群（インスタンス群）)の要素の数だけ部分テンプレートが繰り返される。each文不要。 %>
-<%# @booksの各本は asオプションによりbookとして部分テンプレート内で使える。 %>
-<%= render partial: "books_searching", collection: @books, as: :book %>
+</div>
+<div class="pagination", style="margin: 1.5rem;">
+  <%= paginate @books %>
+</div>

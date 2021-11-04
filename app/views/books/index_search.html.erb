@@ -2,7 +2,7 @@
 <h3 style="margin:0.8rem;">"<%= @keyword %>"にかんする よんだほん:<%= @books.length %>さつ</h3>
 
 <div class="row" style="margin:1.5rem;">
-  <div class="col-sm-8">
+  <div class="col-6">
     <%= form_with(url: index_search_books_path, local: true, method: :get, class: "input-group ") do |f| %>
       <%= f.text_field :keyword, class: "form-control", value: @keyword %>
       <span>
@@ -12,7 +12,7 @@
       </span>
     <% end %>
   </div>
-  <div class="col-sm-4">
+  <div class="col-4">
     <%= button_to "ほんをとうろく", new_book_path, {class: "btn btn-primary", method: :get} %>
   </div>
 </div>
