@@ -52,4 +52,8 @@
     </div>
 <% end %>
 
+<%# 戻るボタン %>
+<%= link_to 'javascript:history.back()' do%>
+  <span class="fas fa-chevron-left fa-2x text-secondary"></span>
+<% end %>
 <%= javascript_pack_tag "reviews" %>

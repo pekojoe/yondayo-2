@@ -1,7 +1,7 @@
 <%= render 'layouts/flash_messages' %>
 
 <div class="container">
-  <div class= "mx-auto mb-3" style="width: 20%;">
+  <div class= "d-flex align-items-center justify-content-center" style="margin: 3rem 1.5rem 1.5rem 1.5rem;">
     <% if @book.image.present? %>
       <%= image_tag(@book.image) %>
     <% else %>
@@ -10,28 +10,32 @@
     <% end %>
   </div>
 
-  <h2 class="text-center mb-3">
+  <h2 class="text-center mb-3" style="margin: 1.5rem;">
     <%= @book.title %>
   </h2>
 
-  <h3 class="text-center mb-3">
+  <h4 class="text-center mb-4" style="margin: 1.5rem;">
     <%= @book.author %>
-  </h3>
+  </h4>
 
-  <div class="rating-container mx-auto mb-3" style="width: 20%;">
+  <div class="rating-container d-flex align-items-center justify-content-center" style="margin: 1.5rem;">
     <div class="star-rating mb-2">
       <div class="star-rating-front" style="width: <%= @book.review_rating_percentage %>%">★★★★★</div>
       <div class="star-rating-back">★★★★★</div>
     </div>
   </div>
 
-  <h4 class="text-center mb-3">
+  <h4 class="text-center mb-3" style="margin: 1.5rem;">
     <%= @review.comment %>
   </h4>
 
-  <div class="btn-wrapper text-center">
+  <div class="btn-wrapper text-center" style="margin: 1.5rem;">
     <%= link_to "へんしゅう", edit_book_path, class: 'btn btn-primary btn-block' %>
     <%= link_to "さくじょ", book_path, data: {confirm: 'ほんとうに さくじょしますか？'}, method: :delete, class: 'btn btn-danger btn-block' %>
-    <%= link_to "もどる", root_path, class: 'btn btn-secondary btn-block' %>
   </div>
+
+  <%# 戻るボタン %>
+  <%= link_to 'javascript:history.back()' do%>
+    <span class="fas fa-chevron-left fa-2x text-secondary"></span>
+  <% end %>
 </div>
