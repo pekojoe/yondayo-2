@@ -14,8 +14,8 @@
 
 
 ## 要件定義:
-  ![youkenteigi1.png](app/assets/images/readme/youkenteigi1.png)
-  ![youkenteigi2.png](app/assets/images/readme/youkenteigi2.png)
+  ![youkenteigi1.png](yondayo-2/app/assets/images/readme/youkenteigi1.png)
+  ![youkenteigi2.png](yondayo-2/app/assets/images/readme/youkenteigi2.png)
 
 
 ## 実装した代表的な機能
@@ -42,7 +42,7 @@
 
 
 ## ER図
-  ![er.png](app/assets/images/readme/er.png)
+  ![er.png](yondayo-2/app/assets/images/readme/er.png)
 
 
 ## 開発環境
