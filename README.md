@@ -14,8 +14,8 @@
 
 
 ## 要件定義:
-  ![youkenteigi1.png](https://gyazo.com/e1e2ab56443f124353c648bba9221fb7)
-  ![youkenteigi2.png](https://gyazo.com/4971e7ff38d643452dcf6fd8206f2709)
+  ![youkenteigi1.png](app/assets/images/readme/youkenteigi1.png)
+  ![youkenteigi2.png](app/assets/images/readme/youkenteigi2.png)
 
 
 ## 実装した代表的な機能
@@ -42,7 +42,7 @@
 
 
 ## ER図
-  ![er.png](https://gyazo.com/71bf7616cdb2453fa99eac6c3da53d4d)
+  ![er.png](app/assets/images/readme/er.png)
 
 
 ## 開発環境
