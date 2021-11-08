@@ -1,5 +1,5 @@
 <%# scopeオプション(scope: q)により、要素のname = q[name] %になる。htmlで確認可 %>
-<p class="fs-2 fw-bold" style="margin:1.5rem;">ほんをけんさくする</p>
+<p class="fs-2 fw-bold" style="margin:1.5rem;">ほんをさがす</p>
 <div class="row" style="margin:1.5rem 0;">
   <div class="col-sm-6">
     <%= form_with(url: search_books_path, local: true, method: :get, class: "input-group") do |f| %>
@@ -24,3 +24,8 @@
 <div class="pagination", style="margin: 1.5rem;">
   <%= paginate @books %>
 </div>
+
+<%# 戻るボタン %>
+<%= link_to 'javascript:history.back()' do%>
+  <span class="fas fa-chevron-left fa-2x text-secondary"></span>
+<% end %>

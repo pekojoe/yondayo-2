@@ -1,5 +1,5 @@
 <%= render 'layouts/flash_messages' %>
-<h3 style="margin:0.8rem;">"<%= @keyword %>"にかんする よんだほん:<%= @books.length %>さつ</h3>
+<p class="fs-2 fw-bold" style="margin:2rem;">"<%= @keyword %>"にかんする よんだほん:<%= @books.length %>さつ</p>
 
 <div class="row" style="margin:1.5rem;">
   <div class="col-6">
@@ -11,9 +11,6 @@
         <% end %>
       </span>
     <% end %>
-  </div>
-  <div class="col-4">
-    <%= button_to "ほんをとうろく", new_book_path, {class: "btn btn-primary", method: :get} %>
   </div>
 </div>
 
@@ -43,3 +40,8 @@
     <% end %>
   </div>
 </div>
+
+<%# 戻るボタン %>
+<%= link_to 'javascript:history.back()' do%>
+  <span class="fas fa-chevron-left fa-2x text-secondary"></span>
+<% end %>

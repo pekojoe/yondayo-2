@@ -1,24 +1,55 @@
-# README
+# アプリケーション名：よんだよ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## アプリケーションの概要：
+  ブックレビューを記録できるWEBサービスです。
 
-* Ruby version
 
-* System dependencies
+## 利用方法: 
+  アカウント登録後、ブックレビューを記録することができます。
 
-* Configuration
 
-* Database creation
+## 目指した課題解決: 
+  子どもが、自分で読書記録を残したり、振り返ったりすることができるようにしたいと考え、このアプリを作成しました。
 
-* Database initialization
 
-* How to run the test suite
+## 要件定義:
+  ![youkenteigi1.png](https://gyazo.com/e1e2ab56443f124353c648bba9221fb7)
+  ![youkenteigi2.png](https://gyazo.com/4971e7ff38d643452dcf6fd8206f2709)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 実装した代表的な機能
+  * ブックレビュー一覧表示機能
+    自分のブックレビューを一覧で新しい順に確認できます。
 
-* ...
+  * ブックレビュー検索機能
+    自分のブックレビューをタイトルや作者名で検索できます。
+
+  * ブックレビュー新規登録機能
+    ブックレビューを登録することができます。
+
+  * 本の検索機能
+    ブックレビューの対象となる本を検索できます。
+
+  * ほめほめ機能
+    自分が読んだ本の冊数の多さを実感したり、可愛いキャラクターに褒めてもらったりすることができます。
+
+
+## 実装予定の機能
+  * 音声入力機能
+  * ほめ言葉のランダム表示機能  
+  * 読んだ本の冊数に応じてアニメーションを表示する機能
+
+
+## ER図
+  ![er.png](https://gyazo.com/71bf7616cdb2453fa99eac6c3da53d4d)
+
+
+## 開発環境
+  * ruby 2.6.5
+  * Ruby on Rails 6.0.4.1
+  * MySQL 5.6.51
+
+
+## ローカルでの動作方法
+  % git clone git@github.com:pekojoe/yondayo-2.git

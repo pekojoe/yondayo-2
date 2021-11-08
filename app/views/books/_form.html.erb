@@ -25,7 +25,8 @@
       <%= f.label :author, "さくしゃ" %>
       <%= f.text_field :author, class:'form-control' %>
     </div>
-    <div class="rating-box" mt-3 >
+
+    <div class="rating-box" style="margin: 1.5rem;">
       <%= f.fields_for :reviews do |r| %>
         <div class="main-rating">
           <div class="ratings" mb-3>
@@ -40,15 +41,19 @@
         <%= r.hidden_field :user_id, value: current_user.id %> <%# レビューに紐づくuser_idを取得 %>
         <%= r.hidden_field :book_id, value: book.id %> <%# レビューに紐づくbook_idを取得 %>
         <%= r.hidden_field :rating, id: "rating-value" %>
-        <div class = "form-group" >
+        <div class = "comment" style="margin-top: 1rem;">
           <%= r.label :comment, "かんそう" %>
           <%= r.text_area :comment, class:'form-control' %>
         </div>
       <% end %>
     </div>
     <div class="form-group">
-      <%= f.submit "ほぞん", class: 'btn btn-primary btn-block' %>
+      <%= f.submit "とうろく", class: 'btn btn-primary btn-block' %>
     </div>
 <% end %>
 
+<%# 戻るボタン %>
+<%= link_to 'javascript:history.back()' do%>
+  <span class="fas fa-chevron-left fa-2x text-secondary"></span>
+<% end %>
 <%= javascript_pack_tag "reviews" %>

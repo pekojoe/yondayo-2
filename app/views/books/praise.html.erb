@@ -1,0 +1,29 @@
+<p class="fs-2 fw-bold" style="margin:1.5rem;"><%= current_user.name %>さんが よんだほん:<%= @books.length %>さつ</p>
+<div class="row" style="margin:1.5rem;">
+  <div class="input-group"> 
+    <%= image_tag("piyo.png", class: "img-responsive col-2 col-sm-1", style:"margin-right:1.5rem;") %>
+    <div class="balloon">
+      <h5 style="padding-top:10px;">
+      <%# style="margin:1.5rem 3rem 0 2rem;" %>
+        たくさん よんでるね！
+      </h5>
+    </div>
+  </div>
+</div> 
+
+<%# カードを横並びにする %>
+<div class="card-deck">
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="card col-2 col-sm-1 border border-0 ">
+        <img class="card-img-top">
+          <%= image_tag("book-placeholder.png", class: "img-responsive") %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%# 戻るボタン %>
+<%= link_to 'javascript:history.back()' do%>
+  <span class="fas fa-chevron-left fa-2x text-secondary"></span>
+<% end %>
