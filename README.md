@@ -14,8 +14,9 @@
 
 
 ## 要件定義:
-  ![youkenteigi1.png](https://gyazo.com/e1e2ab56443f124353c648bba9221fb7)
-  ![youkenteigi2.png](https://gyazo.com/4971e7ff38d643452dcf6fd8206f2709)
+  ![youkenteigi1](https://user-images.githubusercontent.com/85988618/140730175-21a1491a-52a8-46fc-b2e7-1d4f391b7e4f.png)
+
+  ![youkenteigi2](https://user-images.githubusercontent.com/85988618/140730188-fb058c1a-89a9-4c6d-b133-60fd941157e2.png)
 
 
 ## 実装した代表的な機能
@@ -42,7 +43,7 @@
 
 
 ## ER図
-  ![er.png](https://gyazo.com/71bf7616cdb2453fa99eac6c3da53d4d)
+  ![er](https://user-images.githubusercontent.com/85988618/140730108-acdbc64d-e477-4ce8-8738-eb32c4d4c585.png)
 
 
 ## 開発環境
