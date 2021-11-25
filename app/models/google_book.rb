@@ -4,10 +4,11 @@ class GoogleBook
   # form_with や render などのヘルパーメソッドの引数として扱え、
   # バリデーションの機能を使用できるようになる。つまりほぼActiveRecordのDBなし版。
   include ActiveModel::Model
+
   include ActiveModel::Attributes
   include ActiveModel::Validations
 
-  # 以下ActiveModel::Attributesをincludeしたのでattributeが使える
+  # 以下、上の行でActiveModel::Attributesをincludeしたのでattributeが使える
   attribute :image, :string
   attribute :title, :string
   attribute :author, :string
@@ -17,8 +18,8 @@ class GoogleBook
 
   #クラスメソッドを定義。都度のself.を書かなくてOK
   class << self
-    #GoogleBookクラスにGoogleBooksApiモジュールのメソッドがインスタンスメソッドとして組み込まれる
-    #モジュールの場所:app/lib/google_books_api.rb
+    #当GoogleBookクラスにGoogleBooksApiモジュールのメソッドがインスタンスメソッドとして組み込まれる
+    #(モジュールの場所: app/lib/google_books_api.rb)
     include GoogleBooksApi
     
     #1つの本の情報(item)から1つのインスタンスを生成する
@@ -30,6 +31,7 @@ class GoogleBook
         title: @volume_info['title'],
         
         # &.→レシーバ(@volume_info['authors'])がnilのときはnilを返してくれる演算子
+        # join: 配列を連結して1つの文字列にすることができる。(',')をつけると「,」で区切って連結することができる。
         author: @volume_info['authors']&.join(','),
         google_books_api_id: @item['id']
       )
@@ -37,8 +39,11 @@ class GoogleBook
 
     # google_books_api_idから1つの本の情報(item)をJSONとして取得する
     def new_from_id(google_books_api_id)
-      url = url_of_creating_from_id(google_books_api_id) #モジュールのメソッド
+
+      #GoogleBooksApiモジュール内のメソッドを呼び出す
+      url = url_of_creating_from_id(google_books_api_id) 
       item = get_json_from_url(url)
+      
       new_from_item(item)
     end
 
@@ -52,8 +57,9 @@ class GoogleBook
 
       # JSONオブジェクトから、複数のitemsを配列で取得
       items = json['items']
-
-      return [] unless items #itemsがない場合は空の配列を返す
+      
+      #itemsがない場合は空の配列を返す
+      return [] unless items 
 
       # 検索結果群(items)の要素について、順にインスタンスを生成
       items.map do |item| #mapメソッド:各要素へ順に処理を実行してくれるメソッド. eachと似ている

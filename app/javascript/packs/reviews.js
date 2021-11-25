@@ -4,7 +4,7 @@ const ratingValueDisplay = document.getElementById("rating-value-display"); // i
 
 let index; // indexという変数を定義
 
-// reveiwの投稿ページに遷移するとstars.lengthの値（5）だけ繰り返し
+// reviewの投稿ページに遷移するとstars.lengthの値（5）だけ繰り返し
 for(let i=0; i<stars.length; i++){  
 
   // 以下マウスが星に乗った時の処理.5回繰り返される

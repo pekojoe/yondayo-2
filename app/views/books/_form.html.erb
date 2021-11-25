@@ -38,6 +38,7 @@
           </div>
           <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div> <%# ユーザーがいくつ星を選択しているかを表示 %>
         </div>
+        <%# hidden_field: ユーザーに入力させる必要はないが、viewからデータを送りたい時に使う。 %>
         <%= r.hidden_field :user_id, value: current_user.id %> <%# レビューに紐づくuser_idを取得 %>
         <%= r.hidden_field :book_id, value: book.id %> <%# レビューに紐づくbook_idを取得 %>
         <%= r.hidden_field :rating, id: "rating-value" %>

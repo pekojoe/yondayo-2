@@ -18,6 +18,7 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @book.reviews.build
+
     # googlebooksapi経由で登録する場合は、検索結果をそのままフォームに反映させるようにする
     @book.image = params[:image] if params[:image].present?
     @book.title = params[:title] if params[:title].present?
@@ -27,6 +28,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.create(book_params)
+    binding.pry
     if @book.save
       redirect_to root_path
     else
@@ -36,8 +38,10 @@ class BooksController < ApplicationController
 
   def search
     #検索フォームに入力されたキーワードから、検索キーワードのインスタンス作成
-    @search_form = SearchBooksForm.new(search_books_params) 
-    # 受け取った検索キーワードをGooglebookクラスのsearchメソッドに渡して、検索結果群（インスタンス群）の配列として受け取る
+    #SearchBooksFormについては、app/forms/search_books_form.rbを参照
+    @search_form = SearchBooksForm.new(search_books_params)
+
+    # 受け取った検索キーワード(@search_form.keyword)をGooglebookクラスのsearchメソッドに渡して、検索結果群（インスタンス群）の配列として受け取る
     @books = GoogleBook.search(@search_form.keyword)
     @books = Kaminari.paginate_array(@books).page(params[:page]).per(12)
   end
@@ -78,11 +82,11 @@ class BooksController < ApplicationController
     @books = user.books
   end
 
-
   private
-
+  
   def book_params
-    params.require(:book).permit(:image, :title, :author, reviews_attributes: [:id, :user_id, :book_id, :rating, :comment])
+    params.require(:book).
+    permit(:image, :title, :author, :google_books_api_id, reviews_attributes: [:id, :user_id, :book_id, :rating, :comment])
   end
 
   # google_bookモデルが検索を行う際、keywordを受け取ることを許可

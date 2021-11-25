@@ -11,7 +11,9 @@
     <p class="card-text"><%= book.author %></p>
     <%# 本のレビュー新規登録画面にimage,title,authorの値を渡す %>
     <div class="text-right">
-      <%= link_to "レビューをかく", new_book_path(image: book.image, title: book.title, author: book.author), class: "btn btn-primary", method: :get %>
+      <%= link_to "レビューをかく", 
+      new_book_path(image: book.image, title: book.title, author: book.author, google_books_api_id: book.google_books_api_id), 
+      class: "btn btn-primary", method: :get %>
     </div>
   </div>
 </div>

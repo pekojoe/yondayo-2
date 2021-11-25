@@ -24,14 +24,14 @@
   color: #ccc;
 }
 
+.main-rating {
+  display: flex;
+}
+
 .rating-box .ratings .fa {
   font-size: 30px;
   color: #fc0;
   cursor: pointer;
-}
-
-.main-rating {
-  display: flex;
 }
 
 .rating-value-display {
