@@ -26,6 +26,8 @@
       <%= f.text_field :author, class:'form-control' %>
     </div>
 
+    <%= f.hidden_field :google_books_api_id, value: book.google_books_api_id %>
+
     <div class="rating-box" style="margin: 1.5rem;">
       <%= f.fields_for :reviews do |r| %>
         <div class="main-rating">
