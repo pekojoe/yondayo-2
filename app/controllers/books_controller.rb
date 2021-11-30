@@ -7,9 +7,11 @@ class BooksController < ApplicationController
   end
   
   def index_search
+    user = current_user
     @keyword = params[:keyword]
+    # タイトルもしくは著者名にキーワードが一致し、かつ、ログイン中のユーザーの読んだ本を表示する
     if @keyword.present?
-      @books = Book.where('title LIKE ? OR author LIKE ?', "%#{@keyword}%", "%#{@keyword}%")
+      @books = Book.where('title LIKE ? OR author LIKE ?', "%#{@keyword}%", "%#{@keyword}%") && user.books.order("created_at DESC")
     else
       redirect_to root_path
     end
@@ -36,6 +38,7 @@ class BooksController < ApplicationController
   end
 
   def search
+    user = current_user
     #検索フォームに入力されたキーワードから、検索キーワードのインスタンス作成
     #SearchBooksFormについては、app/forms/search_books_form.rbを参照
     @search_form = SearchBooksForm.new(search_books_params)
