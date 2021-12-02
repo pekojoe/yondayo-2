@@ -11,14 +11,14 @@
     <p class="card-text"><%= book.author %></p>
 
     <%# 同じ本のレビューが存在する場合は「レビューあり」・編集ボタンを表示する %>
-    <% if Book.exists?(google_books_api_id: book.google_books_api_id) %>
-      <% book = Book.find_by(google_books_api_id: book.google_books_api_id) %>
+    <% if Book.exists?(google_books_api_id: book.google_books_api_id) && user.books %>
+      <% book = Book.find_by(google_books_api_id: book.google_books_api_id) && user.books %>
       <p class="card-text" style="color:red;"><%= "レビューあり" %></p>
       <div class="text-right">
         <%= link_to "へんしゅう", edit_book_path(book), class: "btn btn-primary", method: :get %>
       </div>
 
-    <%# 同じ本のレビューが存在しない場合は、新規登録画面にimage,title,author,google_books_api_idの値を渡す。「レビューをかく」ボタンを表示 %>
+    <%# 同じ本のレビューが存在しない場合は、新規登録画面にimage,title,author,google_books_api_idの値を渡す。「レビューをかく」ボタンを表示する。 %>
     <% else %>
       <div class="text-right">
         <%= link_to "レビューをかく", 
